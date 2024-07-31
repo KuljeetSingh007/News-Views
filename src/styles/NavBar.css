@@ -1,0 +1,7 @@
+.fixedPls{
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 0px 5px #0000001b;
+    
+}
