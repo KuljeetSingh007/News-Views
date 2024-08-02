@@ -23,7 +23,7 @@ export default function News({
 
     const updateNews = async () => {
         setProgress(40);
-        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=d093053d72bc40248998159804e0e67d&page=${page}&pageSize=${pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=3e4d06ca773c43388534e7dfc42739f6&page=${page}&pageSize=${pageSize}`;
         setloading(true);
         let data = await fetch(url);
         setProgress(30);
@@ -32,7 +32,9 @@ export default function News({
         setProgress(60);
         setarticles(parsedData.articles);
         settotalResults(parsedData.totalResults);
+        console.log("i am total result",totalResults)
         setloading(false);
+        console.log("setloading caled")
         setProgress(100);
         document.title = `${capitalize(category)} - NewsViews`;
         
@@ -57,14 +59,17 @@ export default function News({
     // }
 
     const fetchMoreData = async () => {
-       
-        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=d093053d72bc40248998159804e0e67d&page=${page + 1}&pageSize=${pageSize}`;
+       console.log("fecthmore called!")
+        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=3e4d06ca773c43388534e7dfc42739f6&page=${page + 1}&pageSize=${pageSize}`;
         setpage(page + 1);
         let data = await fetch(url);
         let parsedData = await data.json();
+        console.log("artyicles length is ", articles.length);
         console.log('i am parsedData in fetchMore function ',parsedData);
         setarticles(articles.concat(parsedData.articles));
         settotalResults(parsedData.totalResults);
+        setloading(false); 
+        console.log("loading false called!")
       
     }
 
