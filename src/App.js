@@ -33,14 +33,14 @@ export default function App() {
         </div>
 
         <Routes>
-          <Route exact path="/" element={<div  > <News setProgress={handleProgress} key='general' mode={mode} pageSize={pageSize} country="in" category='general' /></div>} />
-          <Route exact path="/business" element={<div  > <News setProgress={handleProgress} key='business' mode={mode} pageSize={pageSize} country="in" category='business' /></div>} />
-          <Route exact path="/entertainment" element={<div  > <News setProgress={handleProgress} key='entertainment' mode={mode} pageSize={pageSize} country="in" category='entertainment' /></div>} />
-          <Route exact path="/general" element={<div  > <News setProgress={handleProgress} key='general' mode={mode} pageSize={pageSize} country="in" category='general' /></div>} />
-          <Route exact path="/health" element={<div  > <News setProgress={handleProgress} key='health' mode={mode} pageSize={pageSize} country="in" category='health' /></div>} />
-          <Route exact path="/science" element={<div  > <News setProgress={handleProgress} key='science' mode={mode} pageSize={pageSize} country="in" category='science' /></div>} />
-          <Route exact path="/sports" element={<div  > <News setProgress={handleProgress} key='sports' mode={mode} pageSize={pageSize} country="in" category='sports' /></div>} />
-          <Route exact path="/technology" element={<div  > <News setProgress={handleProgress} key='technology' mode={mode} pageSize={pageSize} country="in" category='technology' /></div>} />
+          <Route exact path="/" element={<div  > <News setProgress={handleProgress} key='general' mode={mode} pageSize={pageSize} country="us" category='general' /></div>} />
+          <Route exact path="/business" element={<div  > <News setProgress={handleProgress} key='business' mode={mode} pageSize={pageSize} country="us" category='business' /></div>} />
+          <Route exact path="/entertainment" element={<div  > <News setProgress={handleProgress} key='entertainment' mode={mode} pageSize={pageSize} country="us" category='entertainment' /></div>} />
+          <Route exact path="/general" element={<div  > <News setProgress={handleProgress} key='general' mode={mode} pageSize={pageSize} country="us" category='general' /></div>} />
+          <Route exact path="/health" element={<div  > <News setProgress={handleProgress} key='health' mode={mode} pageSize={pageSize} country="us" category='health' /></div>} />
+          <Route exact path="/science" element={<div  > <News setProgress={handleProgress} key='science' mode={mode} pageSize={pageSize} country="us" category='science' /></div>} />
+          <Route exact path="/sports" element={<div  > <News setProgress={handleProgress} key='sports' mode={mode} pageSize={pageSize} country="us" category='sports' /></div>} />
+          <Route exact path="/technology" element={<div  > <News setProgress={handleProgress} key='technology' mode={mode} pageSize={pageSize} country="us" category='technology' /></div>} />
         </Routes>
       </Router>
     </>

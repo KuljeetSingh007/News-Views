@@ -6,7 +6,7 @@ import Loading from './Loading';
 import PropTypes from 'prop-types';
 
 export default function News({
-    country = 'in',
+    country = 'us',
     pageSize = 9,
     category = 'general',
     setProgress,
@@ -24,7 +24,6 @@ export default function News({
     const updateNews = async () => {
         setProgress(40);
         const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=3e4d06ca773c43388534e7dfc42739f6&page=${page}&pageSize=${pageSize}`;
-        setloading(true);
         let data = await fetch(url);
         setProgress(30);
         let parsedData = await data.json();
@@ -32,12 +31,12 @@ export default function News({
         setProgress(60);
         setarticles(parsedData.articles);
         settotalResults(parsedData.totalResults);
-        console.log("i am total result",totalResults)
+        console.log("i am total result", totalResults)
         setloading(false);
         console.log("setloading caled")
         setProgress(100);
         document.title = `${capitalize(category)} - NewsViews`;
-        
+
     }
 
     useEffect(() => {
@@ -59,18 +58,18 @@ export default function News({
     // }
 
     const fetchMoreData = async () => {
-       console.log("fecthmore called!")
+        console.log("fecthmore called!")
         const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=3e4d06ca773c43388534e7dfc42739f6&page=${page + 1}&pageSize=${pageSize}`;
         setpage(page + 1);
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log("artyicles length is ", articles.length);
-        console.log('i am parsedData in fetchMore function ',parsedData);
+        console.log('i am parsedData in fetchMore function ', parsedData);
         setarticles(articles.concat(parsedData.articles));
         settotalResults(parsedData.totalResults);
-        setloading(false); 
+        setloading(false);
         console.log("loading false called!")
-      
+
     }
 
     // let { mode } = props;
@@ -87,7 +86,7 @@ export default function News({
                 next={fetchMoreData}
                 hasMore={articles.length !== totalResults}
                 loader={<Loading />}
-                >
+            >
 
                 <div className='wrapMe'>
                     {articles.map((elements) => {
